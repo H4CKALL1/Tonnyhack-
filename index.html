@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="profile-pic-wrapper">
+      <div class="profile-pic">
+        <img src="pfp.jpg" alt="Profile Picture">
+      </div>
+    </div>
+    <div class="info">
+      <h2>ⓅⓇⓄ(Ꮮᴜᴄᴋʏ)Hack-Goa</h2>
+    </div>
+    <div class="buttons">
+      <!-- Instagram Button -->
+      <a href="https://www.instagram.com/goa_vip_game_earning_?igsh=a2RiNjNhbTQzeWp5" 
+         onclick="openApp('instagram://user?username=goa_vip_game_earning_', this.href)" 
+         class="btn instagram-btn" target="_blank">
+        <i class="fab fa-instagram icon"></i> Instagram
+      </a>
+      
+      <!-- Telegram Button -->
+      <a href="https://t.me/Goa_Gamee_Link" 
+         onclick="openApp('tg://resolve?domain=Goa_Gamee_Link', this.href)" 
+         class="btn telegram-btn" target="_blank">
+        <i class="fab fa-telegram icon"></i> Telegram
+      </a>
+      
+      <!-- Register Button -->
+      <a href="https://goagames.link/#/register?invitationCode=176883812696" class="btn register-btn">
+        <i class="fas fa-user-plus icon"></i> Register
+      </a>
+      
+      <!-- GoaGame Button -->
+      <a href="goagame.html" class="btn goagame-btn">
+        <i class="fas fa-gamepad icon"></i> GoaGame
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function openApp(appUrl, webUrl) {
+      // Try to open the app
+      window.location = appUrl;
+      
+      // Wait for 1 second and then open the web URL if the app is not available
+      setTimeout(function() {
+        window.location = webUrl;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
