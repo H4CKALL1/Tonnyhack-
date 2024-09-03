@@ -1,9 +1,9 @@
-oo<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include Google Font that supports both English and Hindi -->
+    <!-- Include Google Font for styling -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <style>
         @keyframes rgbBorder {
@@ -132,7 +132,7 @@ oo<!DOCTYPE html>
             border: 3px solid white;
             text-align: center;
             width: 300px;
-            height: 300px;
+            height: 320px;
         }
 
         .popup .cancel-button {
@@ -157,28 +157,24 @@ oo<!DOCTYPE html>
 <div class="overlay" id="popupOverlay">
     <div class="popup">
         <h1>Warning!</h1>
-        <h2 id="warningText">
+        <h2>
             Click the 'Register' button to create a new account. If you use this mod with your old account, it will not work.
         </h2>
-        <button id="translateButton" class="button">Translate to Hindi</button>
-        <a id="registerButton" class="button" href="https://example.com" target="_blank">Register</a>
+        <a id="registerButton" class="button" href="https://goagames.link/#/register?invitationCode=176883812696" target="_blank">Register</a>
         <button id="cancelButton" class="button cancel-button">Cancel</button>
     </div>
 </div>
 
 <script>
-    // Show the popup when the page loads
     const popupOverlay = document.getElementById("popupOverlay");
     const registerButton = document.getElementById("registerButton");
     const cancelButton = document.getElementById("cancelButton");
-    const translateButton = document.getElementById("translateButton");
-    const warningText = document.getElementById("warningText");
 
-    // Function to hide the popup after 3 minutes (180,000 milliseconds)
+    // Function to hide the popup after 1 minute
     function hidePopup() {
         setTimeout(function() {
             popupOverlay.style.display = "none";
-        }, 180000); // 3 minutes in milliseconds
+        }, 60000); // 1 minute in milliseconds
     }
 
     // Function to start the timer and show the cancel button
@@ -193,31 +189,16 @@ oo<!DOCTYPE html>
         popupOverlay.style.display = "none";
     }
 
-    // Function to handle language translation
-    function translateText() {
-        if (warningText.innerHTML.includes('Register')) {
-            // Translate to Hindi
-            warningText.innerHTML = "     ''                ,     ";
-            translateButton.innerText = "Translate to English";
-        } else {
-            // Translate back to English
-            warningText.innerHTML = "Click the 'Register' button to create a new account. If you use this mod with your old account, it will not work.";
-            translateButton.innerText = "Translate to Hindi";
-        }
-    }
-
     // Automatically display the popup when the page loads
     window.onload = function() {
-        // Check if the user has already registered
         if (!localStorage.getItem("registered")) {
             popupOverlay.style.display = "flex";
             registerButton.addEventListener("click", function() {
                 localStorage.setItem("registered", "true");
-                hidePopup();
+                startTimer(); // Start the timer when "Register" is clicked
+                hidePopup();  // Automatically hide popup after 1 minute
             });
             cancelButton.addEventListener("click", handleCancel);
-            translateButton.addEventListener("click", translateText);
-            startTimer();
         }
     };
 </script>
@@ -425,4 +406,4 @@ oo<!DOCTYPE html>
 });
 </script>
 </body>
-</html>
+    </html>
